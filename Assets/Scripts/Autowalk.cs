@@ -82,8 +82,17 @@ public class Autowalk : MonoBehaviour
 		if (isWalking)
 		{
 			Vector3 direction = new Vector3(mainCamera.transform.forward.x, 0, mainCamera.transform.forward.z).normalized * speed * Time.deltaTime;
-			Quaternion rotation = Quaternion.Euler(new Vector3(0, -transform.rotation.eulerAngles.y, 0));
-			transform.Translate(rotation * direction);
+//			if (transform.rotation.eulerAngles.y <= 135 && transform.rotation.eulerAngles.y >= 45) {
+//				Quaternion rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x, 90, 0));
+//				transform.Translate (rotation * direction);
+//			} else if (transform.rotation.eulerAngles.y >= -90 && -transform.rotation.eulerAngles.y <= 45) {
+//				Quaternion rotation = Quaternion.Euler (new Vector3 (0, -90, 0));
+//				transform.Translate (rotation * direction);
+//			} else {
+				Quaternion rotation = Quaternion.Euler (new Vector3 (0, 90, 0));
+			transform.Translate (rotation * direction);
+//			}
+
 		}
 
 		if (freezeYPosition)
